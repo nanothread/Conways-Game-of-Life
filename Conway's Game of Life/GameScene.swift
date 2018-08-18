@@ -10,6 +10,8 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    private var toggledNodes = [SKShapeNode]()
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -28,14 +30,15 @@ class GameScene: SKScene {
     }
     
     func reverseColorOfNode(at point: CGPoint) {
-        for case let shape as SKShapeNode in nodes(at: point) {
+        for case let shape as SKShapeNode in nodes(at: point) where !toggledNodes.contains(shape) {
             shape.fillColor = String(describing: shape.fillColor) == "UIExtendedSRGBColorSpace 1 1 1 1" ? SKColor.random() : SKColor.white
+            toggledNodes.append(shape)
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let location = touches.first!.location(in: self)
-//        reverseColorOfNode(at: location)
+        let location = touches.first!.location(in: self)
+        reverseColorOfNode(at: location)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -44,7 +47,7 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        toggledNodes.removeAll()
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

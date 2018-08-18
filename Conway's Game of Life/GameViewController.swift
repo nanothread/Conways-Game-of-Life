@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
 
     @IBOutlet var scrollView: UIScrollView!
     var gameView: SKView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
