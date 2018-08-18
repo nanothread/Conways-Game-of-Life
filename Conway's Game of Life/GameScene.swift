@@ -24,7 +24,9 @@ class GameScene: SKScene {
         
         for i in 0 ..< rows {
             for j in 0 ..< columns {
-                let distanceFromTopLeft = sqrt(CGFloat((i * i) + (j * j)))
+                // Using `columns - j - 1` because y = 0 is in the bottom left, so the y value of the cells should be reversed to get the distance from the top left.
+                // If you use `j * j` then the gradient will be from bottom left to top right instead of top left to bottom right.
+                let distanceFromTopLeft = sqrt(CGFloat(i * i) + pow(CGFloat(columns - j - 1), 2))
                 let fractionFromTopLeft = distanceFromTopLeft / maxDistanceFromTopLeft
                 
                 let cell = Cell(origin: CGPoint(x: CGFloat(i) * Cell.size,
