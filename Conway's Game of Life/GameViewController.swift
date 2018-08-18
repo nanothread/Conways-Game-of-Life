@@ -12,21 +12,31 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
+    var gameView: SKView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        if let view = self.view as! SKView? {
+        scrollView.contentSize = view.bounds.insetBy(dx: -100, dy: -100).size
+        
+        if gameView == nil {
+            gameView = SKView(frame: CGRect(origin: .zero, size: scrollView.contentSize))
+            scrollView.addSubview(gameView)
+            
             let scene = GameScene()
             scene.scaleMode = .resizeFill
-
-            view.presentScene(scene)
-
-            view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
+            
+            gameView.presentScene(scene)
+            
+            gameView.ignoresSiblingOrder = true
+            gameView.showsFPS = true
+            gameView.showsNodeCount = true
         }
-        
-        
     }
 
     override var shouldAutorotate: Bool {
