@@ -17,22 +17,23 @@ class GameScene: SKScene {
         
         backgroundColor = SKColor.white
         
-        for i in 0 ..< Int(view.frame.width / 25) {
-            for j in 0 ..< Int(view.frame.height / 25) {
-                let shape = SKShapeNode(rect: CGRect(x: CGFloat(i) * view.frame.width / 25,
-                                                     y: CGFloat(j) * view.frame.height / 25,
-                                                     width: 40,
-                                                     height: 40))
-                shape.fillColor = SKColor.lightGray
-                addChild(shape)
+        let rows = Int(view.frame.width / Cell.size)
+        let columns = Int(view.frame.height / Cell.size)
+        
+        for i in 0 ..< rows {
+            for j in 0 ..< columns {
+                let cell = Cell(origin: CGPoint(x: CGFloat(i) * Cell.size,
+                                                y: CGFloat(j) * Cell.size),
+                                aliveColor: SKColor.red)
+                addChild(cell)
             }
         }
     }
     
     func reverseColorOfNode(at point: CGPoint) {
-        for case let shape as SKShapeNode in nodes(at: point) where !toggledNodes.contains(shape) {
-            shape.fillColor = String(describing: shape.fillColor) == "UIExtendedSRGBColorSpace 1 1 1 1" ? SKColor.random() : SKColor.white
-            toggledNodes.append(shape)
+        for case let cell as Cell in nodes(at: point) where !toggledNodes.contains(cell) {
+            cell.isAlive.toggle()
+            toggledNodes.append(cell)
         }
     }
     
@@ -48,15 +49,6 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         toggledNodes.removeAll()
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
     }
 }
 
