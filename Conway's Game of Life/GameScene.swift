@@ -15,13 +15,16 @@ class GameScene: SKScene {
         
         backgroundColor = SKColor.white
         
-        let shape = SKShapeNode()
-        shape.path = UIBezierPath(roundedRect: CGRect(x: -128, y: -128, width: 256, height: 256), cornerRadius: 64).cgPath
-        shape.position = CGPoint(x: frame.midX, y: frame.midY)
-        shape.fillColor = UIColor.red
-        shape.strokeColor = UIColor.blue
-        shape.lineWidth = 10
-        addChild(shape)
+        for i in 0 ..< Int(view.frame.width / 25) {
+            for j in 0 ..< Int(view.frame.height / 25) {
+                let shape = SKShapeNode(rect: CGRect(x: CGFloat(i) * view.frame.width / 25,
+                                                     y: CGFloat(j) * view.frame.height / 25,
+                                                     width: 40,
+                                                     height: 40))
+                shape.fillColor = SKColor.random()
+                addChild(shape)
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

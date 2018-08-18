@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        scrollView.contentSize = view.bounds.insetBy(dx: -100, dy: -100).size
+        scrollView.contentSize = CGSize(width: 1000, height: 1000)
         
         if gameView == nil {
             gameView = SKView(frame: CGRect(origin: .zero, size: scrollView.contentSize))
