@@ -15,6 +15,7 @@
 		3E092DC1212860F200A04A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E092DBF212860F200A04A0E /* LaunchScreen.storyboard */; };
 		3E092DCC212860F200A04A0E /* Conway_s_Game_of_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E092DCB212860F200A04A0E /* Conway_s_Game_of_LifeTests.swift */; };
 		3E092DD721287B3C00A04A0E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E092DD621287B3C00A04A0E /* Cell.swift */; };
+		3E092DD921287B7900A04A0E /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E092DD821287B7900A04A0E /* Gradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3E092DCB212860F200A04A0E /* Conway_s_Game_of_LifeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conway_s_Game_of_LifeTests.swift; sourceTree = "<group>"; };
 		3E092DCD212860F200A04A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E092DD621287B3C00A04A0E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		3E092DD821287B7900A04A0E /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				3E092DB0212860F000A04A0E /* AppDelegate.swift */,
 				3E092DB6212860F000A04A0E /* GameScene.swift */,
 				3E092DD621287B3C00A04A0E /* Cell.swift */,
+				3E092DD821287B7900A04A0E /* Gradient.swift */,
 				3E092DB8212860F000A04A0E /* GameViewController.swift */,
 				3E092DBA212860F000A04A0E /* Main.storyboard */,
 				3E092DBD212860F200A04A0E /* Assets.xcassets */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E092DD921287B7900A04A0E /* Gradient.swift in Sources */,
 				3E092DB7212860F000A04A0E /* GameScene.swift in Sources */,
 				3E092DD721287B3C00A04A0E /* Cell.swift in Sources */,
 				3E092DB9212860F000A04A0E /* GameViewController.swift in Sources */,

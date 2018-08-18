@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     
     private var toggledNodes = [SKShapeNode]()
+    private let gradient = Gradient(start: (192, 57, 43), end: (142, 68, 173))
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -19,12 +20,20 @@ class GameScene: SKScene {
         
         let rows = Int(view.frame.width / Cell.size)
         let columns = Int(view.frame.height / Cell.size)
+        let root2 = CGFloat(sqrt(2))
         
         for i in 0 ..< rows {
             for j in 0 ..< columns {
+                let fractionAlong = CGFloat(i) / CGFloat(rows - 1)
+                let fractionDown = CGFloat(j) / CGFloat(columns - 1)
+                let fractionFromTopLeft = sqrt((fractionAlong * fractionAlong) + (fractionDown * fractionDown)) / root2
+                
                 let cell = Cell(origin: CGPoint(x: CGFloat(i) * Cell.size,
                                                 y: CGFloat(j) * Cell.size),
-                                aliveColor: SKColor.red)
+                                aliveColor: gradient.color(forFraction: fractionFromTopLeft))
+                
+                cell.isAlive = true
+                
                 addChild(cell)
             }
         }
