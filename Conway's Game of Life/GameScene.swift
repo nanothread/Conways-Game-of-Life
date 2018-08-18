@@ -20,13 +20,12 @@ class GameScene: SKScene {
         
         let rows = Int(view.frame.width / Cell.size)
         let columns = Int(view.frame.height / Cell.size)
-        let root2 = CGFloat(sqrt(2))
+        let maxDistanceFromTopLeft = sqrt(pow(CGFloat(rows - 1), 2) + pow(CGFloat(columns - 1), 2))
         
         for i in 0 ..< rows {
             for j in 0 ..< columns {
-                let fractionAlong = CGFloat(i) / CGFloat(rows - 1)
-                let fractionDown = CGFloat(j) / CGFloat(columns - 1)
-                let fractionFromTopLeft = sqrt((fractionAlong * fractionAlong) + (fractionDown * fractionDown)) / root2
+                let distanceFromTopLeft = sqrt(CGFloat((i * i) + (j * j)))
+                let fractionFromTopLeft = distanceFromTopLeft / maxDistanceFromTopLeft
                 
                 let cell = Cell(origin: CGPoint(x: CGFloat(i) * Cell.size,
                                                 y: CGFloat(j) * Cell.size),
