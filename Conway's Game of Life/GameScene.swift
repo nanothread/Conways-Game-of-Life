@@ -21,18 +21,26 @@ class GameScene: SKScene {
                                                      y: CGFloat(j) * view.frame.height / 25,
                                                      width: 40,
                                                      height: 40))
-                shape.fillColor = SKColor.random()
+                shape.fillColor = SKColor.lightGray
                 addChild(shape)
             }
         }
     }
     
+    func reverseColorOfNode(at point: CGPoint) {
+        for case let shape as SKShapeNode in nodes(at: point) {
+            shape.fillColor = String(describing: shape.fillColor) == "UIExtendedSRGBColorSpace 1 1 1 1" ? SKColor.random() : SKColor.white
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+//        let location = touches.first!.location(in: self)
+//        reverseColorOfNode(at: location)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        let location = touches.first!.location(in: self)
+        reverseColorOfNode(at: location)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

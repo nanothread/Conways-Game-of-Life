@@ -24,6 +24,13 @@ class GameViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: 1000, height: 1000)
         
+        // Limit the UIScrollView scrolling gesture to only activate on a 2-finger scroll
+        if let recognisers = scrollView.gestureRecognizers {
+            for case let panRecogniser as UIPanGestureRecognizer in recognisers {
+                panRecogniser.minimumNumberOfTouches = 2
+            }
+        }
+        
         if gameView == nil {
             gameView = SKView(frame: CGRect(origin: .zero, size: scrollView.contentSize))
             scrollView.addSubview(gameView)
