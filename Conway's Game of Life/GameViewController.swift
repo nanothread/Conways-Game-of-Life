@@ -28,9 +28,16 @@ class GameViewController: UIViewController {
     var gameView: SKView! {
         didSet {
             scrollManager.zoomView = gameView
+            gameView.isUserInteractionEnabled = false
         }
     }
     lazy var scrollManager: ScrollViewManager = ScrollViewManager()
+    
+    @IBOutlet var toolbarView: ToolbarView? {
+        didSet {
+            toolbarView?.delegate = self
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,5 +77,12 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+extension GameViewController: ToolbarDelegate {
+    func toolDidChange(to tool: Tool) {
+        scrollView.isScrollEnabled = tool == .hand
+        gameView.isUserInteractionEnabled = tool == .brush
     }
 }

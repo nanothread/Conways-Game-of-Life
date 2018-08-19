@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="pmx-Ia-UAc" id="DPj-la-Vih"/>
+                        <outlet property="toolbarView" destination="vQU-Fs-5vC" id="qAs-Uw-J1M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
