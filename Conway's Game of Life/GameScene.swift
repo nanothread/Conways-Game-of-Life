@@ -13,6 +13,8 @@ class GameScene: SKScene {
     private var toggledNodes = [SKShapeNode]()
     private let gradient = Gradient(start: (192, 57, 43), end: (142, 68, 173))
     
+    var cells = [Cell]()
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -33,8 +35,8 @@ class GameScene: SKScene {
                                                 y: CGFloat(j) * Cell.size),
                                 aliveColor: gradient.color(forFraction: fractionFromTopLeft))
                 
-                cell.isAlive = true
-                
+//                cell.isAlive = true
+                cells.append(cell)
                 addChild(cell)
             }
         }

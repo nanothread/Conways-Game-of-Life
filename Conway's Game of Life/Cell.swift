@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class Cell: SKShapeNode {
+class Cell: SKShapeNode, CellProtocol {
     static let size: CGFloat = 50
     static let deadColor = SKColor.white
     

@@ -38,6 +38,12 @@ class GameViewController: UIViewController {
             toolbarView?.delegate = self
         }
     }
+    
+    var gameController: GameController!
+    
+    @IBAction func playTapped() {
+        gameController.play()
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +62,8 @@ class GameViewController: UIViewController {
             scene.scaleMode = .resizeFill
             
             gameView.presentScene(scene)
+            
+            gameController = GameController(columns: 20, cells: scene.cells)
             
             gameView.ignoresSiblingOrder = true
             gameView.showsFPS = true
