@@ -9,13 +9,23 @@
 import Foundation
 
 class GameController {
+    /// Tick frequency in Hz
+    var tickFrequency: Double = 2
     var model: GameModel
+    
+    private var timer: Timer?
+    var isGameRunning: Bool { return timer?.isValid ?? false }
     
     init(columns: Int, cells: [CellProtocol]) {
         self.model = GameModel(columns: columns, cells: cells)
     }
     
     func play() {
-        model.tick()
+        timer = Timer.scheduledTimer(withTimeInterval: 1 / tickFrequency, repeats: true) { _ in
+            self.model.tick()
+        }
+    }
+    func pause() {
+        timer?.invalidate()
     }
 }

@@ -96,7 +96,12 @@ extension GameViewController: ToolbarDelegate {
     }
     
     func playPauseButtonDidReceiveTap() {
-        gameController.play()
+        if gameController.isGameRunning {
+            gameController.pause()
+        }
+        else {
+            gameController.play()
+        }
     }
     
     func settingsButtonDidReceiveTap() {
