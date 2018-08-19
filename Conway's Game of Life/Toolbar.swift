@@ -8,8 +8,51 @@
 
 import UIKit
 
+protocol ToolbarDelegate: class {
+    func toolPickerDidReceiveTap()
+    func playPauseButtonDidReceiveTap()
+    func settingsButtonDidReceiveTap()
+}
+
+enum Tool {
+    case hand, brush
+    
+    mutating func toggle() {
+        switch self {
+        case .hand: self = .brush
+        case .brush: self = .hand
+        }
+    }
+}
+
 class Toolbar: UIView {
     @IBOutlet var view: UIView!
+    
+    @IBOutlet var settingsView: UIView!
+    @IBOutlet var toolPickerView: UIView!
+    @IBOutlet var playPauseView: UIView!
+    
+    @IBOutlet var handImageView: UIImageView!
+    @IBOutlet var brushImageView: UIImageView!
+    
+    weak var delegate: ToolbarDelegate?
+    var selectedTool: Tool = .hand {
+        didSet {
+            handImageView.isHighlighted = selectedTool == .hand
+            brushImageView.isHighlighted = selectedTool == .brush
+        }
+    }
+    
+    @objc private func settingsViewTapped() {
+        delegate?.settingsButtonDidReceiveTap()
+    }
+    @objc private func playPauseViewTapped() {
+        delegate?.playPauseButtonDidReceiveTap()
+    }
+    @objc private func toolPickerTapped() {
+        selectedTool.toggle()
+        delegate?.toolPickerDidReceiveTap()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +66,7 @@ class Toolbar: UIView {
     func setup() {
         backgroundColor = .clear
         
+        // Load from nib
         Bundle.main.loadNibNamed("Toolbar", owner: self, options: nil)
         view.frame = bounds
         addSubview(view)
@@ -30,5 +74,12 @@ class Toolbar: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
+        
+        // Setup tap recognisers]
+        settingsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(settingsViewTapped)))
+        toolPickerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toolPickerTapped)))
+        playPauseView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(playPauseViewTapped)))
+        
+        handImageView.isHighlighted = true
     }
 }

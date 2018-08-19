@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Toolbar" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
             <connections>
+                <outlet property="brushImageView" destination="icS-ep-OeI" id="NDd-uX-EGf"/>
+                <outlet property="handImageView" destination="bcc-b7-rXa" id="gx1-XA-VTn"/>
+                <outlet property="playPauseView" destination="Y06-NQ-Eyl" id="vNI-W7-ZSu"/>
+                <outlet property="settingsView" destination="qWI-K0-c9d" id="tQY-tl-OQ2"/>
+                <outlet property="toolPickerView" destination="Wh7-n9-8Ol" id="duE-j2-x7J"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HLP-Jc-hUJ"/>
             </connections>
         </placeholder>

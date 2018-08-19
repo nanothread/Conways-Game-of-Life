@@ -42,6 +42,7 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="pmx-Ia-UAc" id="DPj-la-Vih"/>
+                        <outlet property="toolbar" destination="mtg-HN-LgM" id="lL8-iR-26I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
