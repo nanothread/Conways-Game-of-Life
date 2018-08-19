@@ -20,13 +20,71 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="pmx-Ia-UAc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mh-3M-Wlg" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                                <rect key="frame" x="309" y="601" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfi-dY-03u">
+                                        <rect key="frame" x="17" y="13" width="21" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Icon-Play"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="OaV-al-OBF"/>
+                                    <constraint firstAttribute="height" constant="50" id="g6F-GN-ExE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDz-2g-0v9" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                                <rect key="frame" x="16" y="601" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmK-nS-GBh">
+                                        <rect key="frame" x="11" y="11" width="28" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Icon-Settings"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="32Y-aW-kb5"/>
+                                    <constraint firstAttribute="width" constant="50" id="lJ0-DF-xzu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQU-Fs-5vC" customClass="ToolbarView" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                                <rect key="frame" x="120" y="601" width="135" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUW-qf-o8j">
+                                        <rect key="frame" x="74" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Icon-Brush"/>
+                                        <state key="selected" image="Icon-Brush-Filled"/>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-eM-TjC">
+                                        <rect key="frame" x="30" y="9" width="28" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Icon-Hand"/>
+                                        <state key="selected" image="Icon-Hand-Filled"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8lw-0d-GvS"/>
+                                    <constraint firstAttribute="width" constant="135" id="zKI-UG-Pjb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="pmx-Ia-UAc" secondAttribute="trailing" id="5aF-X4-7z8"/>
                             <constraint firstItem="pmx-Ia-UAc" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="CHM-1e-Iro"/>
+                            <constraint firstItem="vQU-Fs-5vC" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="HrB-6V-gPx"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="PDz-2g-0v9" secondAttribute="bottom" constant="16" id="TtE-09-VQE"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="pmx-Ia-UAc" secondAttribute="bottom" id="c5K-S1-3jI"/>
                             <constraint firstItem="pmx-Ia-UAc" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="cMn-7z-5ur"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="0mh-3M-Wlg" secondAttribute="bottom" constant="16" id="cO9-ob-daf"/>
+                            <constraint firstItem="PDz-2g-0v9" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="16" id="fB1-3T-peP"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="vQU-Fs-5vC" secondAttribute="bottom" constant="16" id="lEc-1b-fAJ"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="0mh-3M-Wlg" secondAttribute="trailing" constant="16" id="oDA-x4-Qwi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
@@ -36,6 +94,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-Brush" width="30" height="30"/>
+        <image name="Icon-Brush-Filled" width="30" height="30"/>
+        <image name="Icon-Hand" width="28" height="33"/>
+        <image name="Icon-Hand-Filled" width="29" height="34"/>
+        <image name="Icon-Play" width="21" height="24"/>
+        <image name="Icon-Settings" width="28" height="28"/>
+    </resources>
 </document>

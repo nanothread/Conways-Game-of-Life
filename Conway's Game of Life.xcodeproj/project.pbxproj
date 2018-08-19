@@ -19,6 +19,8 @@
 		3E092DDB21289E4900A04A0E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E092DDA21289E4900A04A0E /* GameModel.swift */; };
 		3E092DDC2128A68D00A04A0E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E092DDA21289E4900A04A0E /* GameModel.swift */; };
 		3EEB4D062128B77F00310F45 /* GameModel_Tick_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB4D052128B77F00310F45 /* GameModel_Tick_Tests.swift */; };
+		3EEB4D082129619000310F45 /* ButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB4D072129619000310F45 /* ButtonContainer.swift */; };
+		3EEB4D0A2129667100310F45 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB4D092129667100310F45 /* ToolbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		3E092DD821287B7900A04A0E /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		3E092DDA21289E4900A04A0E /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		3EEB4D052128B77F00310F45 /* GameModel_Tick_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel_Tick_Tests.swift; sourceTree = "<group>"; };
+		3EEB4D072129619000310F45 /* ButtonContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonContainer.swift; sourceTree = "<group>"; };
+		3EEB4D092129667100310F45 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				3E092DDA21289E4900A04A0E /* GameModel.swift */,
 				3E092DD821287B7900A04A0E /* Gradient.swift */,
 				3E092DB8212860F000A04A0E /* GameViewController.swift */,
+				3EEB4D072129619000310F45 /* ButtonContainer.swift */,
+				3EEB4D092129667100310F45 /* ToolbarView.swift */,
 				3E092DBA212860F000A04A0E /* Main.storyboard */,
 				3E092DBD212860F200A04A0E /* Assets.xcassets */,
 				3E092DBF212860F200A04A0E /* LaunchScreen.storyboard */,
@@ -215,6 +221,8 @@
 			files = (
 				3E092DD921287B7900A04A0E /* Gradient.swift in Sources */,
 				3E092DB7212860F000A04A0E /* GameScene.swift in Sources */,
+				3EEB4D0A2129667100310F45 /* ToolbarView.swift in Sources */,
+				3EEB4D082129619000310F45 /* ButtonContainer.swift in Sources */,
 				3E092DD721287B3C00A04A0E /* Cell.swift in Sources */,
 				3E092DB9212860F000A04A0E /* GameViewController.swift in Sources */,
 				3E092DB1212860F000A04A0E /* AppDelegate.swift in Sources */,
