@@ -10,7 +10,7 @@ import SpriteKit
 
 class Cell: SKShapeNode, CellProtocol {
     static let size: CGFloat = 50
-    static let deadColor = SKColor.white
+    static let deadColor = SKColor(red: 238 / 255, green: 238 / 255, blue: 238 / 255, alpha: 1)
     
     var aliveColor: SKColor
     
@@ -25,11 +25,12 @@ class Cell: SKShapeNode, CellProtocol {
         
         super.init()
         path = UIBezierPath(rect: CGRect(origin: origin, size: CGSize(width: Cell.size, height: Cell.size))).cgPath
-        fillColor = SKColor.white
+        updateUI()
     }
     
     private func updateUI() {
-        fillColor = isAlive ? aliveColor : SKColor.white
+        fillColor = isAlive ? aliveColor : Cell.deadColor
+        lineWidth = isAlive ? 0 : 2
     }
     
     required init?(coder aDecoder: NSCoder) {

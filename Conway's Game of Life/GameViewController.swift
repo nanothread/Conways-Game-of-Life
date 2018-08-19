@@ -33,12 +33,6 @@ class GameViewController: UIViewController {
     }
     lazy var scrollManager: ScrollViewManager = ScrollViewManager()
     
-    @IBOutlet var toolbarView: ToolbarView? {
-        didSet {
-            toolbarView?.delegate = self
-        }
-    }
-    
     var gameController: GameController!
     
     @IBAction func playTapped() {
@@ -85,12 +79,5 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-}
-
-extension GameViewController: ToolbarDelegate {
-    func toolDidChange(to tool: Tool) {
-        scrollView.isScrollEnabled = tool == .hand
-        gameView.isUserInteractionEnabled = tool == .brush
     }
 }
