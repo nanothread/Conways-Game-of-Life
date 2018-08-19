@@ -18,24 +18,28 @@ class GameModel {
     var columns: Int
     var cells: [CellProtocol]
     
-    init(columns: Int, cells: [CellProtocol]) {
+    private var verbose = false
+    
+    init(columns: Int, cells: [CellProtocol], verbose: Bool = false) {
         // Make sure that the number of states (cells) is divisible by the number of columns
         assert(cells.count / columns == Int(cells.count / columns))
+        assert(cells.count == columns * columns, "Matrix must be square. Columns: \(columns); Rows: \(cells.count / columns)")
         
         self.columns = columns
         self.cells = cells
+        self.verbose = verbose
     }
     
     func tick() {
         let currentAliveValues = cells.map { $0.isAlive }
         
-        print("\n\nCells before:", cells.map { $0.isAlive })
+        if verbose { print("\n\nCells before:", cells.map { $0.isAlive }) }
         
         // Trying to do this in the least computationally expensive way
         for (index, cell) in cells.enumerated() {
             let livingNeighbours = getNeighbourIndicesOfCell(at: index).filter { currentAliveValues[$0] }.count
             
-            print("Index:", index, "livingNeighbours:", livingNeighbours)
+            if verbose { print("Index:", index, "livingNeighbours:", livingNeighbours) }
             
             if cell.isAlive && (livingNeighbours < 2 || livingNeighbours > 3) {
                 cell.isAlive = false
@@ -45,7 +49,7 @@ class GameModel {
             }
         }
         
-        print("Cells after:", cells.map { $0.isAlive }, "\n\n")
+        if verbose { print("Cells after:", cells.map { $0.isAlive }, "\n\n") }
     }
     
     func getNeighbourIndicesOfCell(at index: Int) -> [Int] {
@@ -58,7 +62,7 @@ class GameModel {
             right:      index % columns < columns - 1
         )
         
-        print("\n\nIndex: \(index); canAdd: \(canAdd)\n\n")
+        if verbose { print("\n\nIndex: \(index); canAdd: \(canAdd)\n\n") }
         
         // TODO: Refactor this into a fancy switch statement
         if canAdd.top {

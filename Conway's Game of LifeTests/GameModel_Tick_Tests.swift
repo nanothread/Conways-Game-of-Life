@@ -154,4 +154,18 @@ class GameModel_Tick_Tests: XCTestCase {
         let indices = indicesOfAliveCells(fromModel: model)
         XCTAssert(indices.sorted() == [0, 1, 2, 3, 5, 6, 7, 8], "Indices: \(indices)")
     }
+    
+    // MARK: Algorithm Time Test
+    func testTickTime_10_000_Cells() {
+        var layout = [Int]()
+        for _ in 0 ..< 10_000 {
+            layout.append(Bool.random() ? 1 : 0)
+        }
+        
+        let model = GameModel(columns: 100, cells: dummyCells(fromBinaryArray: layout))
+        
+        measure {
+            model.tick()
+        }
+    }
 }
