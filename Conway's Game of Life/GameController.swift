@@ -6,26 +6,42 @@
 //  Copyright © 2018 LivePerson. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class GameController {
     /// Tick frequency in Hz
     var tickFrequency: Double = 2
+    private var tickInterval: TimeInterval { return 1 / tickFrequency }
     var model: GameModel
     
-    private var timer: Timer?
-    var isGameRunning: Bool { return timer?.isValid ?? false }
+    var isGameRunning: Bool { return displayLink != nil }
+    private var lastTickTimestamp: TimeInterval = 0
+    private var displayLink: CADisplayLink?
     
     init(columns: Int, cells: [CellProtocol]) {
         self.model = GameModel(columns: columns, cells: cells)
     }
     
     func play() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1 / tickFrequency, repeats: true) { _ in
-            self.model.tick()
-        }
+        displayLink = CADisplayLink(target: self, selector: #selector(displayLinkTick(_:)))
+        displayLink!.add(to: .current, forMode: .default)
     }
     func pause() {
-        timer?.invalidate()
+        displayLink?.remove(from: .current, forMode: .default)
+        displayLink = nil
+    }
+    
+    @objc private func displayLinkTick(_ link: CADisplayLink) {
+        guard lastTickTimestamp > 0 else {
+            lastTickTimestamp = link.timestamp
+            return
+        }
+        
+        let timeElapsed = link.timestamp - lastTickTimestamp
+        
+        if timeElapsed > tickInterval {
+            model.tick()
+            lastTickTimestamp = link.timestamp
+        }
     }
 }
