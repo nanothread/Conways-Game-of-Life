@@ -31,6 +31,9 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBOutlet var pausedToolbarHeight: NSLayoutConstraint!
+    @IBOutlet var playingToolbarHeight: NSLayoutConstraint!
+    
     var gameView: SKView! {
         didSet {
             scrollManager.zoomView = gameView
@@ -47,6 +50,9 @@ class GameViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        toolbar.playingConstraints.append(playingToolbarHeight)
+//        toolbar.pausedConstraints.append(pausedToolbarHeight)
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,12 +101,22 @@ extension GameViewController: ToolbarDelegate {
         gameView.isUserInteractionEnabled = !handSelected
     }
     
+    // TODO: Tidy up this implementation, possibly by having a larger view that contains all toolbar logic
     func playPauseButtonDidReceiveTap() {
         if gameController.isGameRunning {
             gameController.pause()
         }
         else {
             gameController.play()
+        }
+        
+        toolbar.changeConstraintsForState(playing: gameController.isGameRunning)
+        
+        playingToolbarHeight.isActive = gameController.isGameRunning
+        pausedToolbarHeight.isActive = !gameController.isGameRunning
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
         }
     }
     

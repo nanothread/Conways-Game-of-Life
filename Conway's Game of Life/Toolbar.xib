@@ -17,6 +17,10 @@
                 <outlet property="settingsView" destination="qWI-K0-c9d" id="tQY-tl-OQ2"/>
                 <outlet property="toolPickerView" destination="Wh7-n9-8Ol" id="duE-j2-x7J"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HLP-Jc-hUJ"/>
+                <outletCollection property="pausedConstraints" destination="Yxw-gM-u1a" collectionClass="NSMutableArray" id="sKs-cS-bF3"/>
+                <outletCollection property="pausedConstraints" destination="Gya-jm-LnC" collectionClass="NSMutableArray" id="th3-Iy-mkZ"/>
+                <outletCollection property="playingConstraints" destination="Eua-mt-lHB" collectionClass="NSMutableArray" id="eSn-6d-2rq"/>
+                <outletCollection property="playingConstraints" destination="vZ2-9b-koG" collectionClass="NSMutableArray" id="dcs-UH-jQb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -91,15 +95,23 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Wh7-n9-8Ol" firstAttribute="leading" secondItem="qWI-K0-c9d" secondAttribute="trailing" constant="16" id="Eua-mt-lHB"/>
                 <constraint firstItem="Wh7-n9-8Ol" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Gya-jm-LnC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Wh7-n9-8Ol" secondAttribute="bottom" constant="16" id="TZp-JI-Ze7"/>
                 <constraint firstItem="Y06-NQ-Eyl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="bOP-xy-ViW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y06-NQ-Eyl" secondAttribute="trailing" constant="16" id="dub-8M-sRh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qWI-K0-c9d" secondAttribute="bottom" constant="16" id="rwn-sU-l4u"/>
+                <constraint firstAttribute="trailing" secondItem="Wh7-n9-8Ol" secondAttribute="trailing" constant="16" id="vZ2-9b-koG"/>
                 <constraint firstItem="qWI-K0-c9d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ycO-Xu-487"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Eua-mt-lHB"/>
+                    <exclude reference="vZ2-9b-koG"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="33.5" y="41"/>
         </view>
     </objects>

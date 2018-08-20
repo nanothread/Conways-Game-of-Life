@@ -35,6 +35,9 @@ class Toolbar: UIView {
     @IBOutlet var handImageView: UIImageView!
     @IBOutlet var brushImageView: UIImageView!
     
+    @IBOutlet var pausedConstraints: [NSLayoutConstraint]!
+    @IBOutlet var playingConstraints: [NSLayoutConstraint]!
+    
     weak var delegate: ToolbarDelegate?
     var selectedTool: Tool = .hand {
         didSet {
@@ -52,6 +55,11 @@ class Toolbar: UIView {
     @objc private func toolPickerTapped() {
         selectedTool.toggle()
         delegate?.toolPickerDidReceiveTap()
+    }
+    
+    func changeConstraintsForState(playing: Bool) {
+        pausedConstraints.forEach { $0.isActive = !playing }
+        playingConstraints.forEach  { $0.isActive = playing }
     }
     
     override init(frame: CGRect) {

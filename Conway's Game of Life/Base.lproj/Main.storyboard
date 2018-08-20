@@ -24,8 +24,14 @@
                                 <rect key="frame" x="0.0" y="585" width="375" height="82"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="Lb1-q8-rHK"/>
                                     <constraint firstAttribute="height" constant="82" id="O2d-EO-94L"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lb1-q8-rHK"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -41,6 +47,8 @@
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
+                        <outlet property="pausedToolbarHeight" destination="O2d-EO-94L" id="hdf-VK-MZz"/>
+                        <outlet property="playingToolbarHeight" destination="Lb1-q8-rHK" id="Dz7-cu-xao"/>
                         <outlet property="scrollView" destination="pmx-Ia-UAc" id="DPj-la-Vih"/>
                         <outlet property="toolbar" destination="mtg-HN-LgM" id="lL8-iR-26I"/>
                     </connections>
