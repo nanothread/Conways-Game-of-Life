@@ -13,9 +13,12 @@
             <connections>
                 <outlet property="brushImageView" destination="icS-ep-OeI" id="NDd-uX-EGf"/>
                 <outlet property="handImageView" destination="bcc-b7-rXa" id="gx1-XA-VTn"/>
+                <outlet property="multiPurposeView" destination="Wh7-n9-8Ol" id="w0G-Th-CII"/>
                 <outlet property="playPauseView" destination="Y06-NQ-Eyl" id="vNI-W7-ZSu"/>
                 <outlet property="settingsView" destination="qWI-K0-c9d" id="tQY-tl-OQ2"/>
-                <outlet property="toolPickerView" destination="Wh7-n9-8Ol" id="duE-j2-x7J"/>
+                <outlet property="speedSlider" destination="0NL-MX-7qX" id="QHl-Hx-12c"/>
+                <outlet property="speedSliderView" destination="D58-qb-pwT" id="Cr5-Bp-cu7"/>
+                <outlet property="toolPickerView" destination="6gw-rH-wfb" id="uRQ-FX-nm7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HLP-Jc-hUJ"/>
                 <outletCollection property="pausedConstraints" destination="Yxw-gM-u1a" collectionClass="NSMutableArray" id="sKs-cS-bF3"/>
                 <outletCollection property="pausedConstraints" destination="Gya-jm-LnC" collectionClass="NSMutableArray" id="th3-Iy-mkZ"/>
@@ -69,6 +72,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-n9-8Ol" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
                     <rect key="frame" x="122.5" y="16" width="130" height="50"/>
                     <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D58-qb-pwT">
+                            <rect key="frame" x="16" y="8" width="98" height="34"/>
+                            <subviews>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
+                                    <rect key="frame" x="-2" y="2" width="102" height="31"/>
+                                </slider>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="0NL-MX-7qX" firstAttribute="leading" secondItem="D58-qb-pwT" secondAttribute="leading" id="AXa-bh-F0I"/>
+                                <constraint firstItem="0NL-MX-7qX" firstAttribute="centerY" secondItem="D58-qb-pwT" secondAttribute="centerY" id="aBn-77-OSC"/>
+                                <constraint firstAttribute="trailing" secondItem="0NL-MX-7qX" secondAttribute="trailing" id="gAb-zT-TAg"/>
+                            </constraints>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-rH-wfb">
                             <rect key="frame" x="30.5" y="10" width="69" height="30"/>
                             <subviews>
@@ -86,10 +103,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="D58-qb-pwT" secondAttribute="trailing" constant="16" id="3hZ-nl-nx0"/>
+                        <constraint firstAttribute="bottom" secondItem="D58-qb-pwT" secondAttribute="bottom" constant="8" id="Mkv-66-hA4"/>
                         <constraint firstItem="6gw-rH-wfb" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" id="Pc2-e3-VFS"/>
+                        <constraint firstItem="D58-qb-pwT" firstAttribute="top" secondItem="Wh7-n9-8Ol" secondAttribute="top" constant="8" id="QtS-Fc-qmk"/>
                         <constraint firstAttribute="width" constant="130" id="Yxw-gM-u1a"/>
                         <constraint firstItem="6gw-rH-wfb" firstAttribute="centerX" secondItem="Wh7-n9-8Ol" secondAttribute="centerX" id="cmd-SK-HIo"/>
                         <constraint firstAttribute="height" constant="50" id="nDm-In-Itt"/>
+                        <constraint firstItem="D58-qb-pwT" firstAttribute="leading" secondItem="Wh7-n9-8Ol" secondAttribute="leading" constant="16" id="skx-jk-gds"/>
                     </constraints>
                 </view>
             </subviews>
