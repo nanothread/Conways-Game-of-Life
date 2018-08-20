@@ -24,10 +24,11 @@ class GameController {
     
     func play() {
         displayLink = CADisplayLink(target: self, selector: #selector(displayLinkTick(_:)))
-        displayLink!.add(to: .current, forMode: .default)
+        // Adding to .common means the sim won't pause when the scroll view is scrolloing or zooming.
+        displayLink!.add(to: .current, forMode: .common)
     }
     func pause() {
-        displayLink?.remove(from: .current, forMode: .default)
+        displayLink?.remove(from: .current, forMode: .common)
         displayLink = nil
     }
     
