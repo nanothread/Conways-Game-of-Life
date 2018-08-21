@@ -24,6 +24,10 @@
                 <outletCollection property="pausedConstraints" destination="Gya-jm-LnC" collectionClass="NSMutableArray" id="th3-Iy-mkZ"/>
                 <outletCollection property="playingConstraints" destination="Eua-mt-lHB" collectionClass="NSMutableArray" id="eSn-6d-2rq"/>
                 <outletCollection property="playingConstraints" destination="vZ2-9b-koG" collectionClass="NSMutableArray" id="dcs-UH-jQb"/>
+                <outletCollection property="playingConstraints" destination="Pc2-e3-VFS" collectionClass="NSMutableArray" id="gdn-qZ-l35"/>
+                <outletCollection property="pausedConstraints" destination="Abg-oq-tia" collectionClass="NSMutableArray" id="5mi-Ei-yqP"/>
+                <outletCollection property="pausedConstraints" destination="0Uc-yh-Oah" collectionClass="NSMutableArray" id="mFt-0A-vjl"/>
+                <outletCollection property="playingConstraints" destination="ePp-6L-pks" collectionClass="NSMutableArray" id="8VU-Ws-Rlv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -69,11 +73,11 @@
                         <constraint firstAttribute="width" constant="50" id="gYQ-ez-S6b"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-n9-8Ol" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wh7-n9-8Ol" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
                     <rect key="frame" x="122.5" y="16" width="130" height="50"/>
                     <subviews>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D58-qb-pwT">
-                            <rect key="frame" x="16" y="8" width="98" height="34"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D58-qb-pwT">
+                            <rect key="frame" x="16" y="58" width="98" height="34"/>
                             <subviews>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
                                     <rect key="frame" x="-2" y="2" width="102" height="31"/>
@@ -84,6 +88,7 @@
                                 <constraint firstItem="0NL-MX-7qX" firstAttribute="leading" secondItem="D58-qb-pwT" secondAttribute="leading" id="AXa-bh-F0I"/>
                                 <constraint firstItem="0NL-MX-7qX" firstAttribute="centerY" secondItem="D58-qb-pwT" secondAttribute="centerY" id="aBn-77-OSC"/>
                                 <constraint firstAttribute="trailing" secondItem="0NL-MX-7qX" secondAttribute="trailing" id="gAb-zT-TAg"/>
+                                <constraint firstAttribute="height" constant="34" id="j7m-v4-Lxb"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-rH-wfb">
@@ -103,15 +108,22 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="D58-qb-pwT" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" constant="50" id="0Uc-yh-Oah"/>
                         <constraint firstAttribute="trailing" secondItem="D58-qb-pwT" secondAttribute="trailing" constant="16" id="3hZ-nl-nx0"/>
-                        <constraint firstAttribute="bottom" secondItem="D58-qb-pwT" secondAttribute="bottom" constant="8" id="Mkv-66-hA4"/>
-                        <constraint firstItem="6gw-rH-wfb" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" id="Pc2-e3-VFS"/>
-                        <constraint firstItem="D58-qb-pwT" firstAttribute="top" secondItem="Wh7-n9-8Ol" secondAttribute="top" constant="8" id="QtS-Fc-qmk"/>
+                        <constraint firstItem="6gw-rH-wfb" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" id="Abg-oq-tia"/>
+                        <constraint firstItem="6gw-rH-wfb" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" constant="-50" id="Pc2-e3-VFS"/>
                         <constraint firstAttribute="width" constant="130" id="Yxw-gM-u1a"/>
                         <constraint firstItem="6gw-rH-wfb" firstAttribute="centerX" secondItem="Wh7-n9-8Ol" secondAttribute="centerX" id="cmd-SK-HIo"/>
+                        <constraint firstItem="D58-qb-pwT" firstAttribute="centerY" secondItem="Wh7-n9-8Ol" secondAttribute="centerY" id="ePp-6L-pks"/>
                         <constraint firstAttribute="height" constant="50" id="nDm-In-Itt"/>
                         <constraint firstItem="D58-qb-pwT" firstAttribute="leading" secondItem="Wh7-n9-8Ol" secondAttribute="leading" constant="16" id="skx-jk-gds"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ePp-6L-pks"/>
+                            <exclude reference="Pc2-e3-VFS"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

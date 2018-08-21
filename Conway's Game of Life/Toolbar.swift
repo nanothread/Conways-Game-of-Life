@@ -63,11 +63,7 @@ class Toolbar: UIView {
     
     func changeConstraintsForState(playing: Bool) {
         pausedConstraints.forEach { $0.isActive = !playing }
-        playingConstraints.forEach  { $0.isActive = playing }
-        
-        toolPickerView.isHidden = playing
-        speedSliderView.isHidden = !playing
-    }
+        playingConstraints.forEach  { $0.isActive = playing }    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
