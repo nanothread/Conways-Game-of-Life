@@ -28,6 +28,10 @@
                 <outletCollection property="pausedConstraints" destination="WZZ-TZ-VPh" collectionClass="NSMutableArray" id="Cvv-nA-1rg"/>
                 <outletCollection property="pausedConstraints" destination="Qly-WL-fk4" collectionClass="NSMutableArray" id="iXI-rx-vMp"/>
                 <outletCollection property="playingConstraints" destination="Wt0-lM-TOL" collectionClass="NSMutableArray" id="i4C-kr-Wio"/>
+                <outletCollection property="pausedConstraints" destination="9rc-vf-0ga" collectionClass="NSMutableArray" id="2LO-jd-NfK"/>
+                <outletCollection property="playingConstraints" destination="dB4-PT-y55" collectionClass="NSMutableArray" id="koX-uv-vk4"/>
+                <outletCollection property="pausedConstraints" destination="4oH-3Y-5DW" collectionClass="NSMutableArray" id="lth-Hf-Hff"/>
+                <outletCollection property="playingConstraints" destination="Fao-xB-gSd" collectionClass="NSMutableArray" id="7IB-f0-wf7"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -38,20 +42,54 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y06-NQ-Eyl" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
                     <rect key="frame" x="309" y="16" width="50" height="50"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Play" translatesAutoresizingMaskIntoConstraints="NO" id="p8z-L8-bdc">
-                            <rect key="frame" x="17" y="13.5" width="22" height="23"/>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiL-ng-7WI">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Play" translatesAutoresizingMaskIntoConstraints="NO" id="8tc-9R-UB9">
+                                    <rect key="frame" x="16" y="13" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8tc-9R-UB9" secondAttribute="height" multiplier="1:1" id="2nf-Zb-5Hd"/>
+                                        <constraint firstAttribute="width" constant="24" id="Sd1-XH-5t2"/>
+                                    </constraints>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Pause" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-X2-Kkp">
+                                    <rect key="frame" x="-32" y="13" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="4er-pK-LTb"/>
+                                        <constraint firstAttribute="width" secondItem="4rh-X2-Kkp" secondAttribute="height" multiplier="1:1" id="wb2-oe-eKE"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="23" id="TyN-g7-Pr2"/>
-                                <constraint firstAttribute="width" constant="22" id="vqE-ki-en9"/>
+                                <constraint firstItem="4rh-X2-Kkp" firstAttribute="centerY" secondItem="hiL-ng-7WI" secondAttribute="centerY" id="0Iw-oa-nqy"/>
+                                <constraint firstAttribute="trailing" secondItem="8tc-9R-UB9" secondAttribute="trailing" constant="10" id="4oH-3Y-5DW"/>
+                                <constraint firstAttribute="leading" secondItem="4rh-X2-Kkp" secondAttribute="trailing" constant="8" id="9rc-vf-0ga"/>
+                                <constraint firstAttribute="trailing" secondItem="8tc-9R-UB9" secondAttribute="leading" constant="-8" id="Fao-xB-gSd"/>
+                                <constraint firstItem="4rh-X2-Kkp" firstAttribute="centerX" secondItem="hiL-ng-7WI" secondAttribute="centerX" id="dB4-PT-y55"/>
+                                <constraint firstItem="8tc-9R-UB9" firstAttribute="centerY" secondItem="hiL-ng-7WI" secondAttribute="centerY" id="pc0-2x-z6b"/>
                             </constraints>
-                        </imageView>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Fao-xB-gSd"/>
+                                    <exclude reference="dB4-PT-y55"/>
+                                </mask>
+                            </variation>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="hiL-ng-7WI" secondAttribute="bottom" id="0ze-wB-v7J"/>
+                        <constraint firstAttribute="trailing" secondItem="hiL-ng-7WI" secondAttribute="trailing" id="7MU-5b-81P"/>
                         <constraint firstAttribute="height" constant="50" id="7WU-xj-cl5"/>
                         <constraint firstAttribute="width" constant="50" id="KgA-SN-fW3"/>
-                        <constraint firstAttribute="trailing" secondItem="p8z-L8-bdc" secondAttribute="trailing" constant="11" id="Svs-eu-5wW"/>
-                        <constraint firstItem="p8z-L8-bdc" firstAttribute="centerY" secondItem="Y06-NQ-Eyl" secondAttribute="centerY" id="jce-ff-p4r"/>
+                        <constraint firstItem="hiL-ng-7WI" firstAttribute="leading" secondItem="Y06-NQ-Eyl" secondAttribute="leading" id="Pf6-92-WPO"/>
+                        <constraint firstItem="hiL-ng-7WI" firstAttribute="top" secondItem="Y06-NQ-Eyl" secondAttribute="top" id="VKg-9g-Kwj"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWI-K0-c9d" customClass="ButtonContainer" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
@@ -173,6 +211,7 @@
         <image name="Icon-Brush-Filled" width="30" height="30"/>
         <image name="Icon-Hand" width="28" height="33"/>
         <image name="Icon-Hand-Filled" width="29" height="34"/>
+        <image name="Icon-Pause" width="19" height="23"/>
         <image name="Icon-Play" width="21" height="24"/>
         <image name="Icon-Settings" width="28" height="28"/>
     </resources>

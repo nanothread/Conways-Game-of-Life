@@ -37,6 +37,9 @@ class Toolbar: UIView {
     @IBOutlet var handImageView: UIImageView!
     @IBOutlet var brushImageView: UIImageView!
     
+    @IBOutlet var playImageView: UIImageView!
+    @IBOutlet var pauseImageView: UIImageView!
+    
     @IBOutlet var speedSliderView: UIView!
     @IBOutlet var speedSlider: UISlider!
     
@@ -68,7 +71,8 @@ class Toolbar: UIView {
     
     func changeConstraintsForState(playing: Bool) {
         pausedConstraints.forEach { $0.isActive = !playing }
-        playingConstraints.forEach  { $0.isActive = playing }    }
+        playingConstraints.forEach  { $0.isActive = playing }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
