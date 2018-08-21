@@ -37,9 +37,6 @@ class Toolbar: UIView {
     @IBOutlet var handImageView: UIImageView!
     @IBOutlet var brushImageView: UIImageView!
     
-    @IBOutlet var playImageView: UIImageView!
-    @IBOutlet var pauseImageView: UIImageView!
-    
     @IBOutlet var speedSliderView: UIView!
     @IBOutlet var speedSlider: UISlider!
     
@@ -95,7 +92,7 @@ class Toolbar: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         
-        // Setup tap recognisers]
+        // Setup tap recognisers
         settingsView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(settingsViewTapped)))
         toolPickerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toolPickerTapped)))
         playPauseView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(playPauseViewTapped)))

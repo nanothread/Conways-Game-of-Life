@@ -120,19 +120,33 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D58-qb-pwT">
                                     <rect key="frame" x="0.0" y="58" width="130" height="34"/>
                                     <subviews>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.29999999999999999" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
-                                            <rect key="frame" x="14" y="2" width="102" height="31"/>
-                                            <connections>
-                                                <action selector="sliderValueChanged" destination="-1" eventType="valueChanged" id="z10-po-T0Y"/>
-                                            </connections>
-                                        </slider>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rtt-5h-Kjp">
+                                            <rect key="frame" x="16" y="2" width="98" height="30"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Slow" translatesAutoresizingMaskIntoConstraints="NO" id="sWx-H8-bgH">
+                                                    <rect key="frame" x="0.0" y="3.5" width="32" height="23"/>
+                                                </imageView>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.29999999999999999" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
+                                                    <rect key="frame" x="46" y="0.0" width="9" height="31"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged" destination="-1" eventType="valueChanged" id="z10-po-T0Y"/>
+                                                    </connections>
+                                                </slider>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Fast" translatesAutoresizingMaskIntoConstraints="NO" id="Vou-p0-F9t">
+                                                    <rect key="frame" x="69" y="0.5" width="29" height="29"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="11k-6B-Swp"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="0NL-MX-7qX" firstAttribute="centerY" secondItem="D58-qb-pwT" secondAttribute="centerY" id="aBn-77-OSC"/>
+                                        <constraint firstItem="rtt-5h-Kjp" firstAttribute="centerY" secondItem="D58-qb-pwT" secondAttribute="centerY" id="07W-Vc-nQE"/>
+                                        <constraint firstAttribute="trailing" secondItem="rtt-5h-Kjp" secondAttribute="trailing" constant="16" id="2oW-2E-ajf"/>
+                                        <constraint firstItem="rtt-5h-Kjp" firstAttribute="leading" secondItem="D58-qb-pwT" secondAttribute="leading" constant="16" id="5d9-vf-ijT"/>
                                         <constraint firstAttribute="height" constant="34" id="j7m-v4-Lxb"/>
-                                        <constraint firstItem="0NL-MX-7qX" firstAttribute="leading" secondItem="D58-qb-pwT" secondAttribute="leading" constant="16" id="nCa-a4-1m7"/>
-                                        <constraint firstAttribute="trailing" secondItem="0NL-MX-7qX" secondAttribute="trailing" constant="16" id="oCw-px-2cq"/>
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-rH-wfb">
@@ -209,10 +223,12 @@
     <resources>
         <image name="Icon-Brush" width="30" height="30"/>
         <image name="Icon-Brush-Filled" width="30" height="30"/>
+        <image name="Icon-Fast" width="29" height="29"/>
         <image name="Icon-Hand" width="28" height="33"/>
         <image name="Icon-Hand-Filled" width="29" height="34"/>
         <image name="Icon-Pause" width="19" height="23"/>
         <image name="Icon-Play" width="21" height="24"/>
         <image name="Icon-Settings" width="28" height="28"/>
+        <image name="Icon-Slow" width="32" height="23"/>
     </resources>
 </document>
