@@ -82,8 +82,11 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D58-qb-pwT">
                                     <rect key="frame" x="0.0" y="58" width="130" height="34"/>
                                     <subviews>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="0.29999999999999999" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-MX-7qX">
                                             <rect key="frame" x="14" y="2" width="102" height="31"/>
+                                            <connections>
+                                                <action selector="sliderValueChanged" destination="-1" eventType="valueChanged" id="z10-po-T0Y"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

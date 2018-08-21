@@ -12,6 +12,7 @@ protocol ToolbarDelegate: class {
     func toolPickerDidReceiveTap()
     func playPauseButtonDidReceiveTap()
     func settingsButtonDidReceiveTap()
+    func speedSliderDidChangeValue(to value: Float)
 }
 
 enum Tool {
@@ -59,6 +60,10 @@ class Toolbar: UIView {
     @objc private func toolPickerTapped() {
         selectedTool.toggle()
         delegate?.toolPickerDidReceiveTap()
+    }
+    
+    @IBAction func sliderValueChanged() {
+        delegate?.speedSliderDidChangeValue(to: speedSlider.value)
     }
     
     func changeConstraintsForState(playing: Bool) {

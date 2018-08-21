@@ -127,6 +127,10 @@ extension GameViewController: ToolbarDelegate {
     func settingsButtonDidReceiveTap() {
         print("Settings")
     }
+    
+    func speedSliderDidChangeValue(to value: Float) {
+        gameController.tickFrequency = Double(value)
+    }
 }
 
 extension UISpringTimingParameters {
