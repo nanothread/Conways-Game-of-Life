@@ -115,12 +115,27 @@ extension GameViewController: ToolbarDelegate {
         playingToolbarHeight.isActive = gameController.isGameRunning
         pausedToolbarHeight.isActive = !gameController.isGameRunning
         
-        UIView.animate(withDuration: 0.5) {
+        let params = UISpringTimingParameters(damping: 1, response: 0.3)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
             self.view.layoutIfNeeded()
         }
+        
+        animator.startAnimation()
     }
     
     func settingsButtonDidReceiveTap() {
         print("Settings")
+    }
+}
+
+extension UISpringTimingParameters {
+    /// - Parameters:
+    ///   - damping: Lower damping = more oscillation. Damping of 1.0 = no oscillation.
+    ///   - response: Lower response = faster animation.
+    convenience init(damping: CGFloat, response: CGFloat, initialVelocity: CGVector = .zero) {
+        let stiffness = pow(2 * .pi / response, 2)
+        let damp = 4 * .pi * damping / response
+        self.init(mass: 1, stiffness: stiffness, damping: damp, initialVelocity: initialVelocity)
     }
 }
