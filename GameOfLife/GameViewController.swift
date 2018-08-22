@@ -51,8 +51,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        toolbar.playingConstraints.append(playingToolbarHeight)
-//        toolbar.pausedConstraints.append(pausedToolbarHeight)
+        let _ = OptionsView(frame: .zero)
     }
     
     override func viewDidLayoutSubviews() {

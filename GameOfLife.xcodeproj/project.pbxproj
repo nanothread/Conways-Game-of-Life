@@ -23,6 +23,10 @@
 		3EEB4D0C2129804B00310F45 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB4D0B2129804B00310F45 /* GameController.swift */; };
 		3EEB4D0E2129A33000310F45 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB4D0D2129A33000310F45 /* Toolbar.swift */; };
 		3EFBC54C2129A374005C4FE8 /* Toolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC54B2129A374005C4FE8 /* Toolbar.xib */; };
+		3EFBC551212D7F81005C4FE8 /* MenuOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC550212D7F81005C4FE8 /* MenuOptions.json */; };
+		3EFBC553212D8089005C4FE8 /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC552212D8089005C4FE8 /* MenuOptions.swift */; };
+		3EFBC555212D873C005C4FE8 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC554212D873C005C4FE8 /* OptionsView.swift */; };
+		3EFBC557212D8744005C4FE8 /* OptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC556212D8744005C4FE8 /* OptionsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		3EEB4D0B2129804B00310F45 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		3EEB4D0D2129A33000310F45 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		3EFBC54B2129A374005C4FE8 /* Toolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Toolbar.xib; sourceTree = "<group>"; };
+		3EFBC550212D7F81005C4FE8 /* MenuOptions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MenuOptions.json; sourceTree = "<group>"; };
+		3EFBC552212D8089005C4FE8 /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
+		3EFBC554212D873C005C4FE8 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		3EFBC556212D8744005C4FE8 /* OptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +86,7 @@
 		3E092DA4212860F000A04A0E = {
 			isa = PBXGroup;
 			children = (
-				3E092DAF212860F000A04A0E /* Conway's Game of Life */,
+				3E092DAF212860F000A04A0E /* GameOfLife */,
 				3E092DCA212860F200A04A0E /* Conway's Game of LifeTests */,
 				3E092DAE212860F000A04A0E /* Products */,
 			);
@@ -93,7 +101,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E092DAF212860F000A04A0E /* Conway's Game of Life */ = {
+		3E092DAF212860F000A04A0E /* GameOfLife */ = {
 			isa = PBXGroup;
 			children = (
 				3E092DB0212860F000A04A0E /* AppDelegate.swift */,
@@ -104,14 +112,18 @@
 				3E092DD821287B7900A04A0E /* Gradient.swift */,
 				3E092DB8212860F000A04A0E /* GameViewController.swift */,
 				3EEB4D072129619000310F45 /* ButtonContainer.swift */,
+				3EFBC552212D8089005C4FE8 /* MenuOptions.swift */,
+				3EFBC554212D873C005C4FE8 /* OptionsView.swift */,
+				3EFBC556212D8744005C4FE8 /* OptionsView.xib */,
 				3EEB4D0D2129A33000310F45 /* Toolbar.swift */,
 				3EFBC54B2129A374005C4FE8 /* Toolbar.xib */,
 				3E092DBA212860F000A04A0E /* Main.storyboard */,
+				3EFBC550212D7F81005C4FE8 /* MenuOptions.json */,
 				3E092DBD212860F200A04A0E /* Assets.xcassets */,
 				3E092DBF212860F200A04A0E /* LaunchScreen.storyboard */,
 				3E092DC2212860F200A04A0E /* Info.plist */,
 			);
-			path = "Conway's Game of Life";
+			path = GameOfLife;
 			sourceTree = "<group>";
 		};
 		3E092DCA212860F200A04A0E /* Conway's Game of LifeTests */ = {
@@ -181,7 +193,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E092DA8212860F000A04A0E /* Build configuration list for PBXProject "Conway's Game of Life" */;
+			buildConfigurationList = 3E092DA8212860F000A04A0E /* Build configuration list for PBXProject "GameOfLife" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -209,6 +221,8 @@
 				3E092DBE212860F200A04A0E /* Assets.xcassets in Resources */,
 				3E092DC1212860F200A04A0E /* LaunchScreen.storyboard in Resources */,
 				3EFBC54C2129A374005C4FE8 /* Toolbar.xib in Resources */,
+				3EFBC551212D7F81005C4FE8 /* MenuOptions.json in Resources */,
+				3EFBC557212D8744005C4FE8 /* OptionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +247,8 @@
 				3E092DD721287B3C00A04A0E /* Cell.swift in Sources */,
 				3E092DB9212860F000A04A0E /* GameViewController.swift in Sources */,
 				3EEB4D0E2129A33000310F45 /* Toolbar.swift in Sources */,
+				3EFBC553212D8089005C4FE8 /* MenuOptions.swift in Sources */,
+				3EFBC555212D873C005C4FE8 /* OptionsView.swift in Sources */,
 				3E092DB1212860F000A04A0E /* AppDelegate.swift in Sources */,
 				3E092DDB21289E4900A04A0E /* GameModel.swift in Sources */,
 			);
@@ -400,13 +416,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EV37RCF267;
-				INFOPLIST_FILE = "Conway's Game of Life/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GameOfLife/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liveperson.Conway-s-Game-of-Life";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenagon.gameoflife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -419,13 +435,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EV37RCF267;
-				INFOPLIST_FILE = "Conway's Game of Life/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GameOfLife/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liveperson.Conway-s-Game-of-Life";
+				PRODUCT_BUNDLE_IDENTIFIER = com.glenagon.gameoflife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,7 +493,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E092DA8212860F000A04A0E /* Build configuration list for PBXProject "Conway's Game of Life" */ = {
+		3E092DA8212860F000A04A0E /* Build configuration list for PBXProject "GameOfLife" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E092DCE212860F200A04A0E /* Debug */,
