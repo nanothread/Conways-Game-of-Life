@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionsView" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="iZ3-lE-4kV" id="5Se-k6-rLb"/>
+                <outlet property="collectionViewFlowLayout" destination="scC-wi-bgK" id="nVY-in-uTi"/>
                 <outlet property="view" destination="iN0-l3-epB" id="pyD-qm-aME"/>
             </connections>
         </placeholder>

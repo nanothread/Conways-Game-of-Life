@@ -16,6 +16,11 @@ class OptionsView: UIView {
             collectionView.delegate = collectionManager
         }
     }
+    @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout! {
+        didSet {
+            collectionViewFlowLayout.estimatedItemSize = OptionCell.estimatedSize
+        }
+    }
     
     let collectionManager: OptionsCollectionManager = OptionsCollectionManager()
     
@@ -38,7 +43,7 @@ class OptionsView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(UINib(nibName: "OptionCell", bundle: nil), forCellWithReuseIdentifier: "option")
     }
 }
 
@@ -52,8 +57,10 @@ class OptionsCollectionManager: NSObject, UICollectionViewDataSource, UICollecti
         return data.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "option", for: indexPath)
+        
+        (cell as? OptionCell)?.configure(with: data[indexPath.item])
+        
         return cell
     }
 }
