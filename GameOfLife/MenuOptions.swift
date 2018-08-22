@@ -31,24 +31,17 @@ struct MenuOption: Codable {
 
 extension MenuOption {
     static func loadOptionsFromBundle() -> [MenuOption] {
-        guard let path = Bundle.main.path(forResource: "MenuOptions", ofType: "json") else {
-            print("Error Loading Options: path not found")
-            return []
-        }
-        
-//        guard let url = URL(string: "file://" + path.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!) else {
-//            print("Resource path isn't a URL.", path)
-//            return []
-//        }
-        
-        guard let url = URL(string: path) else {
-            print("Resource path isn't a URL.", path)
+        guard let url = Bundle.main.url(forResource: "MenuOptions", withExtension: "json") else {
+            print("Resource path isn't a URL.")
             return []
         }
         
         do {
-//            let url = URL(fileURLWithPath: path)
-            let data = try Data(contentsOf: url)
+            guard let data = try String(contentsOf: url).data(using: .utf8) else {
+                print("Data could not be extracted from url")
+                return []
+            }
+            
             return try JSONDecoder().decode([MenuOption].self, from: data)
         }
         catch {

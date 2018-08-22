@@ -1,74 +1,74 @@
 [
     {
-        name: "Clear Board",
-        action: "clearBoard",
-        color: "#525B63",
-        iconName: "Icon-Menu-Clear"
+        "name": "Clear Board",
+        "action": "clearBoard",
+        "colorString": "#525B63",
+        "iconName": "Icon-Menu-Clear"
     },
     {
-        name: "Set Cell States...",
-        action: "setCellStates",
-        color: "#EEBC36",
-        iconName: "Icon-Menu-SetState"
+        "name": "Set Cell States...",
+        "action": "setCellStates",
+        "colorString": "#EEBC36",
+        "iconName": "Icon-Menu-SetState"
     },
     {
-        name: "Predefined Patterns",
-        action: "viewPredefinedPatterns",
-        color: "#77C258",
-        iconName: "Icon-Menu-Add"
+        "name": "Predefined Patterns",
+        "action": "viewPredefinedPatterns",
+        "colorString": "#77C258",
+        "iconName": "Icon-Menu-Add"
     },
     {
-        name: "Jump to Tick",
-        action: "jumpToTick",
-        color: "#DA4E4E",
-        iconName: "Icon-Menu-Tick"
+        "name": "Jump to Tick",
+        "action": "jumpToTick",
+        "colorString": "#DA4E4E",
+        "iconName": "Icon-Menu-Tick"
     },
     {
-        name: "Themes",
-        action: "selectTheme",
-        color: "#17C6E7",
-        iconName: "Icon-Menu-Themes"
+        "name": "Themes",
+        "action": "selectTheme",
+        "colorString": "#17C6E7",
+        "iconName": "Icon-Menu-Themes"
     },
     {
-        name: "Board Size",
-        action: "changeBoardSize",
-        color: "#AD36C8",
-        iconName: "Icon-Menu-Board"
+        "name": "Board Size",
+        "action": "changeBoardSize",
+        "colorString": "#AD36C8",
+        "iconName": "Icon-Menu-Board"
     },
     {
-        name: "Save Game",
-        action: "saveGame",
-        color: "#7B7CFE",
-        iconName: "Icon-Menu-Save"
+        "name": "Save Game",
+        "action": "saveGame",
+        "colorString": "#7B7CFE",
+        "iconName": "Icon-Menu-Save"
     },
     {
-        name: "Load Game",
-        action: "loadGame",
-        color: "#5CC89A",
-        iconName: "Icon-Menu-Load"
+        "name": "Load Game",
+        "action": "loadGame",
+        "colorString": "#5CC89A",
+        "iconName": "Icon-Menu-Load"
     },
     {
-        name: "Share Game",
-        action: "shareGame",
-        color: "#DD6C99",
-        iconName: "Icon-Menu-Share"
+        "name": "Share Game",
+        "action": "shareGame",
+        "colorString": "#DD6C99",
+        "iconName": "Icon-Menu-Share"
     },
     {
-        name: "Music",
-        action: "viewMusicOptions",
-        color: "#ADE471",
-        iconName: "Icon-Menu-Music"
+        "name": "Music",
+        "action": "viewMusicOptions",
+        "colorString": "#ADE471",
+        "iconName": "Icon-Menu-Music"
     },
     {
-        name: "Fine Settings",
-        action: "viewFineSettings",
-        color: "#FAAB37",
-        iconName: "Icon-Menu-Settings"
+        "name": "Fine Settings",
+        "action": "viewFineSettings",
+        "colorString": "#FAAB37",
+        "iconName": "Icon-Menu-Settings"
     },
     {
-        name: "Edit",
-        action: "editMenu",
-        color: "#53B0F1",
-        iconName: "Icon-Menu-Edit"
+        "name": "Edit",
+        "action": "editMenu",
+        "colorString": "#53B0F1",
+        "iconName": "Icon-Menu-Edit"
     }
 ]
