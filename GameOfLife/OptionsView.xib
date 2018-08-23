@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iZ3-lE-4kV">
-                            <rect key="frame" x="16" y="0.0" width="343" height="400"/>
+                            <rect key="frame" x="16" y="28" width="343" height="372"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="scC-wi-bgK">
                                 <size key="itemSize" width="80" height="100"/>
@@ -35,12 +35,27 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONa-B3-qwd">
+                            <rect key="frame" x="172.5" y="8" width="30" height="4"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="J8u-HM-9sy"/>
+                                <constraint firstAttribute="height" constant="4" id="wcc-aZ-WlH"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="iZ3-lE-4kV" firstAttribute="top" secondItem="U6E-tv-y5P" secondAttribute="top" id="Bvq-me-alt"/>
+                        <constraint firstItem="ONa-B3-qwd" firstAttribute="top" secondItem="U6E-tv-y5P" secondAttribute="top" constant="8" id="XVn-g9-cP2"/>
+                        <constraint firstItem="ONa-B3-qwd" firstAttribute="centerX" secondItem="U6E-tv-y5P" secondAttribute="centerX" id="aDg-P7-pQz"/>
                         <constraint firstItem="iZ3-lE-4kV" firstAttribute="leading" secondItem="U6E-tv-y5P" secondAttribute="leading" constant="16" id="lY6-4o-Spf"/>
                         <constraint firstAttribute="bottom" secondItem="iZ3-lE-4kV" secondAttribute="bottom" id="mSY-Gk-fdE"/>
+                        <constraint firstItem="iZ3-lE-4kV" firstAttribute="top" secondItem="ONa-B3-qwd" secondAttribute="bottom" constant="16" id="tXp-hx-TK1"/>
                         <constraint firstAttribute="trailing" secondItem="iZ3-lE-4kV" secondAttribute="trailing" constant="16" id="xHF-2F-0ZO"/>
                     </constraints>
                 </view>
@@ -54,7 +69,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="38" y="-23"/>
+            <point key="canvasLocation" x="37.5" y="-23"/>
         </view>
     </objects>
 </document>
