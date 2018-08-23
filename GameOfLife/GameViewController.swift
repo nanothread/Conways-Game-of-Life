@@ -132,7 +132,7 @@ extension GameViewController: ToolbarDelegate {
     }
     
     func settingsButtonDidReceiveTap() {
-        optionsConstraintManager.state = .fullyOpen
+        optionsConstraintManager.state = optionsConstraintManager.suggestedNextState()
         
         view.animateLayout()
     }

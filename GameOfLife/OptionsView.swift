@@ -45,6 +45,14 @@ class OptionsView: UIView {
         
         collectionView.register(UINib(nibName: "OptionCell", bundle: nil), forCellWithReuseIdentifier: "option")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.cornerRadius = 15
+        clipsToBounds = true
+        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
 }
 
 class OptionsViewConstraintManager: NSObject {
@@ -64,6 +72,15 @@ class OptionsViewConstraintManager: NSObject {
             activeConstraints(for: state).forEach {
                 $0.isActive = true
             }
+        }
+    }
+    
+    // TODO: Update this functionality to work with parially open states.
+    func suggestedNextState() -> State {
+        switch state {
+        case .closed: return .fullyOpen
+        case .partiallyOpen: return .fullyOpen
+        case .fullyOpen: return .closed
         }
     }
     
