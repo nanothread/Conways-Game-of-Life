@@ -9,7 +9,7 @@
 import UIKit
 
 class OptionCell: UICollectionViewCell {
-    static let estimatedSize = CGSize(width: 80, height: 100)
+    static let estimatedSize = CGSize(width: 100, height: 120)
     
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var iconBackgroundView: UIView!
@@ -17,13 +17,13 @@ class OptionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        iconBackgroundView.layer.cornerRadius = 25
     }
     
     func configure(with option: MenuOption) {
         iconImageView.image = option.icon
         iconBackgroundView.backgroundColor = option.color
         label.text = option.name
+        
+        iconBackgroundView.layer.cornerRadius = iconBackgroundView.frame.width / 2
     }
 }

@@ -47,6 +47,35 @@ class OptionsView: UIView {
     }
 }
 
+class OptionsViewConstraintManager: NSObject {
+    enum State {
+        case closed, partiallyOpen, fullyOpen
+    }
+    
+    @IBOutlet var closedConstraints: [NSLayoutConstraint]!
+    @IBOutlet var partiallyOpenConstraints: [NSLayoutConstraint]!
+    @IBOutlet var fullyOpenConstraints: [NSLayoutConstraint]!
+    
+    var state: State = .closed {
+        didSet {
+            (closedConstraints + fullyOpenConstraints + partiallyOpenConstraints).forEach {
+                $0.isActive = false
+            }
+            activeConstraints(for: state).forEach {
+                $0.isActive = true
+            }
+        }
+    }
+    
+    private func activeConstraints(for state: State) -> [NSLayoutConstraint] {
+        switch state {
+        case .closed: return closedConstraints
+        case .partiallyOpen: return partiallyOpenConstraints
+        case .fullyOpen: return fullyOpenConstraints
+        }
+    }
+}
+
 class OptionsCollectionManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     var data = MenuOption.loadOptionsFromBundle()
     

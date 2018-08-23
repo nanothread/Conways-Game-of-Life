@@ -67,10 +67,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-1i-f8p" customClass="OptionsView" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
-                                <rect key="frame" x="16" y="133.5" width="343" height="400"/>
+                                <rect key="frame" x="16" y="58.5" width="343" height="550"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="aIS-2w-XoX"/>
+                                    <constraint firstAttribute="height" constant="550" id="aIS-2w-XoX"/>
                                 </constraints>
                             </view>
                         </subviews>
