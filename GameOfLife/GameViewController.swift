@@ -10,6 +10,18 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+extension UIView {
+    func animateLayout(damping: CGFloat = 1, response: CGFloat = 0.3) {
+        let params = UISpringTimingParameters(damping: damping, response: response)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
+            self.layoutIfNeeded()
+        }
+        
+        animator.startAnimation()
+    }
+}
+
 class ScrollViewManager: NSObject, UIScrollViewDelegate {
     weak var zoomView: UIView?
     
@@ -33,6 +45,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet var pausedToolbarHeight: NSLayoutConstraint!
     @IBOutlet var playingToolbarHeight: NSLayoutConstraint!
+    
+    @IBOutlet var optionsConstraintManager: OptionsViewConstraintManager!
     
     var gameView: SKView! {
         didSet {
@@ -114,17 +128,13 @@ extension GameViewController: ToolbarDelegate {
         playingToolbarHeight.isActive = gameController.isGameRunning
         pausedToolbarHeight.isActive = !gameController.isGameRunning
         
-        let params = UISpringTimingParameters(damping: 1, response: 0.3)
-        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
-        animator.addAnimations {
-            self.view.layoutIfNeeded()
-        }
-        
-        animator.startAnimation()
+        view.animateLayout()
     }
     
     func settingsButtonDidReceiveTap() {
-        print("Settings")
+        optionsConstraintManager.state = .fullyOpen
+        
+        view.animateLayout()
     }
     
     func speedSliderDidChangeValue(to value: Float) {

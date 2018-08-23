@@ -52,9 +52,9 @@ class OptionsViewConstraintManager: NSObject {
         case closed, partiallyOpen, fullyOpen
     }
     
-    @IBOutlet var closedConstraints: [NSLayoutConstraint]!
-    @IBOutlet var partiallyOpenConstraints: [NSLayoutConstraint]!
-    @IBOutlet var fullyOpenConstraints: [NSLayoutConstraint]!
+    @IBOutlet var closedConstraints: [NSLayoutConstraint] = []
+    @IBOutlet var partiallyOpenConstraints: [NSLayoutConstraint] = []
+    @IBOutlet var fullyOpenConstraints: [NSLayoutConstraint] = []
     
     var state: State = .closed {
         didSet {

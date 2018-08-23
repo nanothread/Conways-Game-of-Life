@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Auh-FN-AAC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,6 +34,13 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-2N-XN8" customClass="OptionsView" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                                <rect key="frame" x="16" y="667" width="343" height="550"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="550" id="QDb-zZ-vBJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -41,13 +48,23 @@
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="pmx-Ia-UAc" secondAttribute="trailing" id="5aF-X4-7z8"/>
                             <constraint firstItem="pmx-Ia-UAc" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="CHM-1e-Iro"/>
                             <constraint firstItem="mtg-HN-LgM" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="TSu-g9-Z6S"/>
+                            <constraint firstItem="7CI-2N-XN8" firstAttribute="top" secondItem="mtg-HN-LgM" secondAttribute="bottom" id="VN2-Px-TU2"/>
+                            <constraint firstAttribute="trailing" secondItem="7CI-2N-XN8" secondAttribute="trailing" constant="16" id="Xoh-nV-wvq"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="pmx-Ia-UAc" secondAttribute="bottom" id="c5K-S1-3jI"/>
                             <constraint firstItem="pmx-Ia-UAc" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="cMn-7z-5ur"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="mtg-HN-LgM" secondAttribute="trailing" id="fWK-ZA-are"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="mtg-HN-LgM" secondAttribute="bottom" constant="550" id="hTN-Qd-YNA"/>
+                            <constraint firstItem="7CI-2N-XN8" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="16" id="mgY-Ns-ao0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hTN-Qd-YNA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="optionsConstraintManager" destination="tmS-kp-Ym2" id="JWD-YC-l02"/>
                         <outlet property="pausedToolbarHeight" destination="O2d-EO-94L" id="hdf-VK-MZz"/>
                         <outlet property="playingToolbarHeight" destination="Lb1-q8-rHK" id="Dz7-cu-xao"/>
                         <outlet property="scrollView" destination="pmx-Ia-UAc" id="DPj-la-Vih"/>
@@ -55,37 +72,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <customObject id="tmS-kp-Ym2" customClass="OptionsViewConstraintManager" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
+                    <connections>
+                        <outletCollection property="closedConstraints" destination="4ma-sO-Wr1" collectionClass="NSMutableArray" id="RGy-Dr-Oat"/>
+                        <outletCollection property="fullyOpenConstraints" destination="hTN-Qd-YNA" collectionClass="NSMutableArray" id="ALC-xd-csK"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="8qu-5O-2kU">
-            <objects>
-                <viewController id="Auh-FN-AAC" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Q4M-We-rSr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-1i-f8p" customClass="OptionsView" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
-                                <rect key="frame" x="16" y="58.5" width="343" height="550"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="550" id="aIS-2w-XoX"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="h3v-1i-f8p" firstAttribute="leading" secondItem="g6W-rb-1kV" secondAttribute="leading" constant="16" id="14H-i3-Lg5"/>
-                            <constraint firstItem="g6W-rb-1kV" firstAttribute="trailing" secondItem="h3v-1i-f8p" secondAttribute="trailing" constant="16" id="S01-y5-6ii"/>
-                            <constraint firstItem="h3v-1i-f8p" firstAttribute="centerY" secondItem="Q4M-We-rSr" secondAttribute="centerY" id="dQf-P3-Rbv"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="g6W-rb-1kV"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qgW-eD-v15" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="737.18140929535241"/>
         </scene>
     </scenes>
 </document>
