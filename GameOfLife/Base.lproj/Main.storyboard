@@ -65,6 +65,7 @@
                     </view>
                     <connections>
                         <outlet property="optionsConstraintManager" destination="tmS-kp-Ym2" id="JWD-YC-l02"/>
+                        <outlet property="optionsView" destination="7CI-2N-XN8" id="lkC-Fn-tQC"/>
                         <outlet property="pausedToolbarHeight" destination="O2d-EO-94L" id="hdf-VK-MZz"/>
                         <outlet property="playingToolbarHeight" destination="Lb1-q8-rHK" id="Dz7-cu-xao"/>
                         <outlet property="scrollView" destination="pmx-Ia-UAc" id="DPj-la-Vih"/>
@@ -74,6 +75,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <customObject id="tmS-kp-Ym2" customClass="OptionsViewConstraintManager" customModule="Conway_s_Game_of_Life" customModuleProvider="target">
                     <connections>
+                        <outlet property="proximityToToolbarConstraint" destination="VN2-Px-TU2" id="kjf-Ns-RnH"/>
                         <outletCollection property="closedConstraints" destination="4ma-sO-Wr1" collectionClass="NSMutableArray" id="RGy-Dr-Oat"/>
                         <outletCollection property="fullyOpenConstraints" destination="hTN-Qd-YNA" collectionClass="NSMutableArray" id="ALC-xd-csK"/>
                     </connections>

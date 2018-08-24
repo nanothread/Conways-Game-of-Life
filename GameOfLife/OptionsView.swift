@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol OptionsViewDelegate: class {
+    func optionsViewHeightShouldChange(verticalTranslation trans: CGFloat)
+    func optionsViewPanEnded(newHeight: CGFloat)
+}
+
 class OptionsView: UIView {
     @IBOutlet var view: UIView!
     @IBOutlet var collectionView: UICollectionView! {
@@ -23,6 +28,31 @@ class OptionsView: UIView {
     }
     
     let collectionManager: OptionsCollectionManager = OptionsCollectionManager()
+    lazy var panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panRecognized))
+    
+    weak var delegate: OptionsViewDelegate?
+    
+    private var heightBeforePanBegan: CGFloat = 0
+    
+    @objc private func panRecognized() {
+        let trans = panRecognizer.translation(in: self).y
+        
+        switch panRecognizer.state {
+        case .began:
+            heightBeforePanBegan = frame.height
+            
+        case .changed:
+            delegate?.optionsViewHeightShouldChange(verticalTranslation: trans)
+            
+        case .ended:
+            delegate?.optionsViewHeightShouldChange(verticalTranslation: trans)
+            
+        case .cancelled:
+            delegate?.optionsViewPanEnded(newHeight: heightBeforePanBegan)
+            
+        default: break
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +74,8 @@ class OptionsView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[v]-(0)-|", options: [], metrics: nil, views: ["v": view]))
         
         collectionView.register(UINib(nibName: "OptionCell", bundle: nil), forCellWithReuseIdentifier: "option")
+        
+        addGestureRecognizer(panRecognizer)
     }
     
     override func layoutSubviews() {
@@ -64,6 +96,8 @@ class OptionsViewConstraintManager: NSObject {
     @IBOutlet var partiallyOpenConstraints: [NSLayoutConstraint] = []
     @IBOutlet var fullyOpenConstraints: [NSLayoutConstraint] = []
     
+    @IBOutlet var proximityToToolbarConstraint: NSLayoutConstraint!
+    
     var state: State = .closed {
         didSet {
             (closedConstraints + fullyOpenConstraints + partiallyOpenConstraints).forEach {
@@ -73,6 +107,10 @@ class OptionsViewConstraintManager: NSObject {
                 $0.isActive = true
             }
         }
+    }
+    
+    func updateRelevantConstraint(forVerticalTranslation trans: CGFloat) {
+        proximityToToolbarConstraint.constant = trans
     }
     
     // TODO: Update this functionality to work with parially open states.

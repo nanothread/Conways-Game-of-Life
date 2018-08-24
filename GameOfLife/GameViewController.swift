@@ -47,6 +47,11 @@ class GameViewController: UIViewController {
     @IBOutlet var playingToolbarHeight: NSLayoutConstraint!
     
     @IBOutlet var optionsConstraintManager: OptionsViewConstraintManager!
+    @IBOutlet var optionsView: OptionsView! {
+        didSet {
+            optionsView.delegate = self
+        }
+    }
     
     var gameView: SKView! {
         didSet {
@@ -65,7 +70,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let _ = OptionsView(frame: .zero)
     }
     
     override func viewDidLayoutSubviews() {
@@ -139,6 +143,17 @@ extension GameViewController: ToolbarDelegate {
     
     func speedSliderDidChangeValue(to value: Float) {
         gameController.tickFrequency = Double(value)
+    }
+}
+
+extension GameViewController: OptionsViewDelegate {
+    func optionsViewHeightShouldChange(verticalTranslation trans: CGFloat) {
+        optionsConstraintManager.updateRelevantConstraint(forVerticalTranslation: trans)
+        view.layoutIfNeeded()
+    }
+    
+    func optionsViewPanEnded(newHeight: CGFloat) {
+        
     }
 }
 
