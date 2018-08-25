@@ -147,13 +147,18 @@ extension GameViewController: ToolbarDelegate {
 }
 
 extension GameViewController: OptionsViewDelegate {
+    func optionsViewPanBegan() {
+        optionsConstraintManager.panBegan(optionsViewHeight: optionsView.frame.height) { self.view.layoutIfNeeded() }
+    }
     func optionsViewHeightShouldChange(verticalTranslation trans: CGFloat) {
-        optionsConstraintManager.updateRelevantConstraint(forVerticalTranslation: trans)
-        view.layoutIfNeeded()
+//        optionsConstraintManager.updateRelevantConstraint(forVerticalTranslation: trans)
+//        view.layoutIfNeeded()
+        
+        optionsConstraintManager.panChanged(translation: trans, optionsViewHeight: optionsView.frame.height)
     }
     
-    func optionsViewPanEnded(newHeight: CGFloat) {
-        
+    func optionsViewPanEnded() {
+        optionsConstraintManager.panEnded()
     }
 }
 

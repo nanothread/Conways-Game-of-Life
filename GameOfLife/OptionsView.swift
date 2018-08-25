@@ -9,8 +9,9 @@
 import UIKit
 
 protocol OptionsViewDelegate: class {
+    func optionsViewPanBegan()
     func optionsViewHeightShouldChange(verticalTranslation trans: CGFloat)
-    func optionsViewPanEnded(newHeight: CGFloat)
+    func optionsViewPanEnded()
 }
 
 class OptionsView: UIView {
@@ -32,23 +33,18 @@ class OptionsView: UIView {
     
     weak var delegate: OptionsViewDelegate?
     
-    private var heightBeforePanBegan: CGFloat = 0
-    
     @objc private func panRecognized() {
         let trans = panRecognizer.translation(in: self).y
         
         switch panRecognizer.state {
         case .began:
-            heightBeforePanBegan = frame.height
+            delegate?.optionsViewPanBegan()
             
         case .changed:
             delegate?.optionsViewHeightShouldChange(verticalTranslation: trans)
             
-        case .ended:
-            delegate?.optionsViewHeightShouldChange(verticalTranslation: trans)
-            
-        case .cancelled:
-            delegate?.optionsViewPanEnded(newHeight: heightBeforePanBegan)
+        case .ended, .cancelled:
+            delegate?.optionsViewPanEnded()
             
         default: break
         }
@@ -96,7 +92,8 @@ class OptionsViewConstraintManager: NSObject {
     @IBOutlet var partiallyOpenConstraints: [NSLayoutConstraint] = []
     @IBOutlet var fullyOpenConstraints: [NSLayoutConstraint] = []
     
-    @IBOutlet var proximityToToolbarConstraint: NSLayoutConstraint!
+    var animator: UIViewPropertyAnimator?
+    private var animationProgress: CGFloat = 0
     
     var state: State = .closed {
         didSet {
@@ -109,8 +106,21 @@ class OptionsViewConstraintManager: NSObject {
         }
     }
     
-    func updateRelevantConstraint(forVerticalTranslation trans: CGFloat) {
-        proximityToToolbarConstraint.constant = trans
+    func panBegan(optionsViewHeight height: CGFloat, layoutViewCode: @escaping () -> Void) {
+        let params = UISpringTimingParameters(damping: 1, response: 0.3)
+        animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator?.addAnimations {
+            self.state = .closed
+            layoutViewCode()
+        }
+        animator?.fractionComplete = animationProgress
+    }
+    func panChanged(translation trans: CGFloat, optionsViewHeight: CGFloat) {
+        animator?.fractionComplete =  trans / optionsViewHeight
+        animationProgress = trans / optionsViewHeight
+    }
+    func panEnded() {
+        animator?.continueAnimation(withTimingParameters: UISpringTimingParameters(damping: 1, response: 1), durationFactor: 0)
     }
     
     // TODO: Update this functionality to work with parially open states.
