@@ -25,10 +25,6 @@
 		3EFBC54C2129A374005C4FE8 /* Toolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC54B2129A374005C4FE8 /* Toolbar.xib */; };
 		3EFBC551212D7F81005C4FE8 /* MenuOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC550212D7F81005C4FE8 /* MenuOptions.json */; };
 		3EFBC553212D8089005C4FE8 /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC552212D8089005C4FE8 /* MenuOptions.swift */; };
-		3EFBC555212D873C005C4FE8 /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC554212D873C005C4FE8 /* OptionsView.swift */; };
-		3EFBC557212D8744005C4FE8 /* OptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC556212D8744005C4FE8 /* OptionsView.xib */; };
-		3EFBC55A212E0C36005C4FE8 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBC558212E0C36005C4FE8 /* OptionCell.swift */; };
-		3EFBC55B212E0C36005C4FE8 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBC559212E0C36005C4FE8 /* OptionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +59,6 @@
 		3EFBC54B2129A374005C4FE8 /* Toolbar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Toolbar.xib; sourceTree = "<group>"; };
 		3EFBC550212D7F81005C4FE8 /* MenuOptions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MenuOptions.json; sourceTree = "<group>"; };
 		3EFBC552212D8089005C4FE8 /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
-		3EFBC554212D873C005C4FE8 /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
-		3EFBC556212D8744005C4FE8 /* OptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsView.xib; sourceTree = "<group>"; };
-		3EFBC558212E0C36005C4FE8 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
-		3EFBC559212E0C36005C4FE8 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +109,6 @@
 				3E092DB8212860F000A04A0E /* GameViewController.swift */,
 				3EEB4D072129619000310F45 /* ButtonContainer.swift */,
 				3EFBC552212D8089005C4FE8 /* MenuOptions.swift */,
-				3EFBC554212D873C005C4FE8 /* OptionsView.swift */,
-				3EFBC556212D8744005C4FE8 /* OptionsView.xib */,
-				3EFBC558212E0C36005C4FE8 /* OptionCell.swift */,
-				3EFBC559212E0C36005C4FE8 /* OptionCell.xib */,
 				3EEB4D0D2129A33000310F45 /* Toolbar.swift */,
 				3EFBC54B2129A374005C4FE8 /* Toolbar.xib */,
 				3E092DBA212860F000A04A0E /* Main.storyboard */,
@@ -224,12 +212,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E092DBC212860F000A04A0E /* Main.storyboard in Resources */,
-				3EFBC55B212E0C36005C4FE8 /* OptionCell.xib in Resources */,
 				3E092DBE212860F200A04A0E /* Assets.xcassets in Resources */,
 				3E092DC1212860F200A04A0E /* LaunchScreen.storyboard in Resources */,
 				3EFBC54C2129A374005C4FE8 /* Toolbar.xib in Resources */,
 				3EFBC551212D7F81005C4FE8 /* MenuOptions.json in Resources */,
-				3EFBC557212D8744005C4FE8 /* OptionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +241,6 @@
 				3E092DB9212860F000A04A0E /* GameViewController.swift in Sources */,
 				3EEB4D0E2129A33000310F45 /* Toolbar.swift in Sources */,
 				3EFBC553212D8089005C4FE8 /* MenuOptions.swift in Sources */,
-				3EFBC55A212E0C36005C4FE8 /* OptionCell.swift in Sources */,
-				3EFBC555212D873C005C4FE8 /* OptionsView.swift in Sources */,
 				3E092DB1212860F000A04A0E /* AppDelegate.swift in Sources */,
 				3E092DDB21289E4900A04A0E /* GameModel.swift in Sources */,
 			);
