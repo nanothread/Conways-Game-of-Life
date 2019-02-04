@@ -1,6 +1,9 @@
 # Conways-Game-of-Life
 A simple [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) project using SpriteKit and Swift. Feel free to download, run, and contribute to the project.  
-Icons came from [icons8](https://icons8.com)
+
+![](/resources/demo.gif)
+
+Icons came from [icons8](https://icons8.com).
 
 ## Overview
 #### GameViewController
