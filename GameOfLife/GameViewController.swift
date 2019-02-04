@@ -3,24 +3,14 @@
 //  Conway's Game of Life
 //
 //  Created by Andrew Glen on 18/08/2018.
-//  Copyright © 2018 LivePerson. All rights reserved.
+//  Copyright © 2019 Andrew Glen. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
-extension UIView {
-    func animateLayout(damping: CGFloat = 1, response: CGFloat = 0.3) {
-        let params = UISpringTimingParameters(damping: damping, response: response)
-        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
-        animator.addAnimations {
-            self.layoutIfNeeded()
-        }
-        
-        animator.startAnimation()
-    }
-}
+
 
 class ScrollViewManager: NSObject, UIScrollViewDelegate {
     weak var zoomView: UIView?
@@ -29,6 +19,9 @@ class ScrollViewManager: NSObject, UIScrollViewDelegate {
         return zoomView
     }
 }
+
+
+
 
 class GameViewController: UIViewController {
 
@@ -62,7 +55,6 @@ class GameViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,6 +62,7 @@ class GameViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: 1000, height: 1000)
         
+        // Set up the game scene
         if gameView == nil {
             gameView = SKView(frame: CGRect(origin: .zero, size: scrollView.contentSize))
             scrollView.addSubview(gameView)
@@ -82,7 +75,7 @@ class GameViewController: UIViewController {
             gameController = GameController(columns: 20, cells: scene.cells)
             
             gameView.ignoresSiblingOrder = true
-            gameView.showsFPS = true
+            gameView.showsFPS = false
             gameView.showsNodeCount = true
         }
     }
@@ -134,17 +127,5 @@ extension GameViewController: ToolbarDelegate {
     
     func speedSliderDidChangeValue(to value: Float) {
         gameController.tickFrequency = Double(value)
-    }
-}
-
-// Taken from https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5
-extension UISpringTimingParameters {
-    /// - Parameters:
-    ///   - damping: Lower damping = more oscillation. Damping of 1.0 = no oscillation.
-    ///   - response: Lower response = faster animation.
-    convenience init(damping: CGFloat, response: CGFloat, initialVelocity: CGVector = .zero) {
-        let stiffness = pow(2 * .pi / response, 2)
-        let damp = 4 * .pi * damping / response
-        self.init(mass: 1, stiffness: stiffness, damping: damp, initialVelocity: initialVelocity)
     }
 }
