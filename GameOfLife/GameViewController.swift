@@ -10,8 +10,6 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-
-
 class ScrollViewManager: NSObject, UIScrollViewDelegate {
     weak var zoomView: UIView?
     
@@ -19,9 +17,6 @@ class ScrollViewManager: NSObject, UIScrollViewDelegate {
         return zoomView
     }
 }
-
-
-
 
 class GameViewController: UIViewController {
 

@@ -99,16 +99,12 @@
 			isa = PBXGroup;
 			children = (
 				3E092DB0212860F000A04A0E /* AppDelegate.swift */,
+				3E092DB8212860F000A04A0E /* GameViewController.swift */,
 				3E092DB6212860F000A04A0E /* GameScene.swift */,
 				3EEB4D0B2129804B00310F45 /* GameController.swift */,
-				3E092DD621287B3C00A04A0E /* Cell.swift */,
 				3E092DDA21289E4900A04A0E /* GameModel.swift */,
-				3E092DD821287B7900A04A0E /* Gradient.swift */,
-				3E092DB8212860F000A04A0E /* GameViewController.swift */,
-				3EEB4D072129619000310F45 /* ButtonContainer.swift */,
-				3EEB4D0D2129A33000310F45 /* Toolbar.swift */,
-				3E401D272208CE4200092EBB /* Animation.swift */,
-				3EFBC54B2129A374005C4FE8 /* Toolbar.xib */,
+				3E401D2C2208CF3200092EBB /* Helper */,
+				3E401D2A2208CF0C00092EBB /* UI */,
 				3E092DBA212860F000A04A0E /* Main.storyboard */,
 				3E092DBD212860F200A04A0E /* Assets.xcassets */,
 				3E092DBF212860F200A04A0E /* LaunchScreen.storyboard */,
@@ -125,6 +121,26 @@
 				3E092DCD212860F200A04A0E /* Info.plist */,
 			);
 			path = "Conway's Game of LifeTests";
+			sourceTree = "<group>";
+		};
+		3E401D2A2208CF0C00092EBB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3EEB4D0D2129A33000310F45 /* Toolbar.swift */,
+				3EFBC54B2129A374005C4FE8 /* Toolbar.xib */,
+				3E092DD621287B3C00A04A0E /* Cell.swift */,
+				3EEB4D072129619000310F45 /* ButtonContainer.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3E401D2C2208CF3200092EBB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3E092DD821287B7900A04A0E /* Gradient.swift */,
+				3E401D272208CE4200092EBB /* Animation.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -35,7 +35,6 @@ class GameScene: SKScene {
                                                 y: CGFloat(j) * Cell.size),
                                 aliveColor: gradient.color(forFraction: fractionFromTopLeft))
                 
-//                cell.isAlive = true
                 cells.append(cell)
                 addChild(cell)
             }

@@ -36,7 +36,8 @@ class GameModel {
         
         if verbose { print("\n\nCells before:", cells.map { $0.isAlive }) }
         
-        // Trying to do this in the least computationally expensive way
+        // Attempting to do this in a fairly non computationally expensive way.
+        // TODO: optimise
         for (index, cell) in cells.enumerated() {
             let livingNeighbours = getNeighbourIndicesOfCell(at: index).filter { currentAliveValues[$0] }.count
             
@@ -65,7 +66,6 @@ class GameModel {
         
         if verbose { print("\n\nIndex: \(index); canAdd: \(canAdd)\n\n") }
         
-        // TODO: Refactor this into a fancy switch statement
         if canAdd.top {
             indices.append(index - columns)
         }
