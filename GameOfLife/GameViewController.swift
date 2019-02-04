@@ -46,13 +46,6 @@ class GameViewController: UIViewController {
     @IBOutlet var pausedToolbarHeight: NSLayoutConstraint!
     @IBOutlet var playingToolbarHeight: NSLayoutConstraint!
     
-    @IBOutlet var optionsConstraintManager: OptionsViewConstraintManager!
-    @IBOutlet var optionsView: OptionsView! {
-        didSet {
-            optionsView.delegate = self
-        }
-    }
-    
     var gameView: SKView! {
         didSet {
             scrollManager.zoomView = gameView
@@ -136,9 +129,7 @@ extension GameViewController: ToolbarDelegate {
     }
     
     func settingsButtonDidReceiveTap() {
-        optionsConstraintManager.state = optionsConstraintManager.suggestedNextState()
         
-        view.animateLayout()
     }
     
     func speedSliderDidChangeValue(to value: Float) {
@@ -146,22 +137,7 @@ extension GameViewController: ToolbarDelegate {
     }
 }
 
-extension GameViewController: OptionsViewDelegate {
-    func optionsViewPanBegan() {
-        optionsConstraintManager.panBegan(optionsViewHeight: optionsView.frame.height) { self.view.layoutIfNeeded() }
-    }
-    func optionsViewHeightShouldChange(verticalTranslation trans: CGFloat) {
-//        optionsConstraintManager.updateRelevantConstraint(forVerticalTranslation: trans)
-//        view.layoutIfNeeded()
-        
-        optionsConstraintManager.panChanged(translation: trans, optionsViewHeight: optionsView.frame.height)
-    }
-    
-    func optionsViewPanEnded() {
-        optionsConstraintManager.panEnded()
-    }
-}
-
+// Taken from https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5
 extension UISpringTimingParameters {
     /// - Parameters:
     ///   - damping: Lower damping = more oscillation. Damping of 1.0 = no oscillation.

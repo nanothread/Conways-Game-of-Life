@@ -8,12 +8,13 @@
 
 import Foundation
 
-/// Bound to class because the cells alive values must be passed by reference when copying to `oldCells` in `tick`
+// Bound to class because the cells' alive values must be passed by reference when copying to `oldCells` in `tick`
+/// Describes a single cell in the grid.
 protocol CellProtocol: class {
     var isAlive: Bool { get set }
 }
 
-/// Assumes a square matrix, `columns` x `columns`
+/// Powers the logic behind each timer tick. Assumes a square matrix, `columns` x `columns`
 class GameModel {
     var columns: Int
     var cells: [CellProtocol]
@@ -21,8 +22,8 @@ class GameModel {
     private var verbose = false
     
     init(columns: Int, cells: [CellProtocol], verbose: Bool = false) {
-        // Make sure that the number of states (cells) is divisible by the number of columns
-        assert(cells.count / columns == Int(cells.count / columns))
+        // Make sure that the number of cells is divisible by the number of columns
+        assert(Double(cells.count).truncatingRemainder(dividingBy: Double(columns)) == 0)
         assert(cells.count == columns * columns, "Matrix must be square. Columns: \(columns); Rows: \(cells.count / columns)")
         
         self.columns = columns

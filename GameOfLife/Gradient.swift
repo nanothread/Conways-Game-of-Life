@@ -14,21 +14,24 @@ class Gradient {
     
     var start: RGB {
         didSet {
-            difference = calculateDifference()
+            difference = Gradient.calculateDifference(between: start, and: end)
         }
     }
     var end: RGB {
         didSet {
-            difference = calculateDifference()
+            difference = Gradient.calculateDifference(between: start, and: end)
         }
     }
     
-    private lazy var difference: RGB = calculateDifference()
+    private var difference: RGB
     
-    // TODO: Unit test what happens when values outside 0...255 are used
     init(start: RGB, end: RGB) {
+        assert(Gradient.rgbIsValid(start), "`start` is not valid RGB (values must be in range 0 ... 255)")
+        assert(Gradient.rgbIsValid(end), "`end` is not valid RGB (values must be in range 0 ... 255)")
+
         self.start = start
         self.end = end
+        self.difference = Gradient.calculateDifference(between: start, and: end)
     }
     
     func color(forFraction fraction: CGFloat) -> SKColor {
@@ -46,9 +49,12 @@ class Gradient {
                 blue: start.blue + diff.blue * fraction)
     }
     
-    private func calculateDifference() -> RGB {
+    private static func calculateDifference(between start: RGB, and end: RGB) -> RGB {
         return (red: end.red - start.red,
                 green: end.green - start.green,
                 blue: end.blue - start.blue)
+    }
+    static func rgbIsValid(_ c: RGB) -> Bool {
+        return [c.red, c.green, c.blue].reduce(true) { $0 && $1 >= 0 && $1 <= 255 }
     }
 }
