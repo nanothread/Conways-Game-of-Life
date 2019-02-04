@@ -3,7 +3,7 @@
 //  Conway's Game of Life
 //
 //  Created by Andrew Glen on 18/08/2018.
-//  Copyright © 2018 LivePerson. All rights reserved.
+//  Copyright © 2019 Andrew Glen. All rights reserved.
 //
 
 import UIKit
